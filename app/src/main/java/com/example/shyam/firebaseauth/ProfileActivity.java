@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -62,11 +63,13 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         mAuth = FirebaseAuth.getInstance();
 
+
+
         //Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
 
         editText = findViewById(R.id.editTextDisplayName);
-        imageView =  findViewById(R.id.imageView);
+        imageView =  (ImageView)findViewById(R.id.imageView);
         progressBar =  findViewById(R.id.progressbar);
        // textView =  findViewById(R.id.textViewVerified);
 
@@ -82,13 +85,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        //loadUserInformation();
+        loadUserInformation();
 
         findViewById(R.id.buttonSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveUserInformation();
                 saveuserdata();
+                finish();
+
+                //startActivity(new Intent(this, Main2Activity.class));
+
             }
         });
     }
@@ -103,21 +110,24 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-   /* private void loadUserInformation() {
+    private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
-
+        //ImageView imageView=(ImageView)findViewById(R.id.imageView);
         if (user != null) {
             if (user.getPhotoUrl() != null) {
                 Glide.with(this)
                         .load(user.getPhotoUrl().toString())
                         .into(imageView);
+
+
+
             }
 
             if (user.getDisplayName() != null) {
                 editText.setText(user.getDisplayName());
             }
 
-            if (user.isEmailVerified()) {
+            /*if (user.isEmailVerified()) {
                 textView.setText("Email Verified");
             } else {
                 textView.setText("Email Not Verified (Click to Verify)");
@@ -132,9 +142,9 @@ public class ProfileActivity extends AppCompatActivity {
                         });
                     }
                 });
-            }
+            }*/
         }
-    }*/
+    }
 
 
     private void saveUserInformation() {
@@ -223,8 +233,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         return true;
     }
-*/
-   /* @Override
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {

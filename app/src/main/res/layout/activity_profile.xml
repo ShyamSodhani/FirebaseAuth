@@ -12,16 +12,18 @@
         android:layout_height="wrap_content"
         android:text="Tap on camera to choose profile picture"
         android:textAlignment="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="200dp"
+            android:layout_height="180dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:background="@drawable/camera"
@@ -46,21 +48,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:paddingRight="100dp">
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/editTextGender"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
             android:gravity="center"
-            android:inputType="text"
-            android:hint="Gender" />
+            android:hint="Gender"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextAge"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:hint="Age"
             android:inputType="number"
@@ -77,17 +82,21 @@
             android:id="@+id/editTextHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:hint="Height"
-            android:inputType="number"/>
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/editTextWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:hint="Weight"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </LinearLayout>
 
@@ -107,7 +116,7 @@
         android:paddingRight="55dp"
         android:text="Save"
         android:textAllCaps="false"
-        android:onClick="saveuserdata"/>
+        />
 
 
 
@@ -121,7 +130,7 @@
         android:paddingRight="55dp"
         android:text="Display"
         android:textAllCaps="false"
-        android:onClick="display_user_data"/>
+        />
 
 
 
