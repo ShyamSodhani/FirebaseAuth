@@ -52,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity {
     EditText Height;
     EditText Gender;
     EditText Weight;
+    public int sum;
 
 
 
@@ -112,7 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
-        //ImageView imageView=(ImageView)findViewById(R.id.imageView);
+        ImageView imageView=(ImageView)findViewById(R.id.imageView);
         if (user != null) {
             if (user.getPhotoUrl() != null) {
                 Glide.with(this)
@@ -225,16 +226,16 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-   /* @Override
+  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.main_menu, menu);
 
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
@@ -273,23 +274,12 @@ public class ProfileActivity extends AppCompatActivity {
               editor.putInt("Height",height);
               editor.putInt("Weight",weight);
               editor.putInt("Age",age);
+              editor.putInt("Sum",sum);
               editor.apply();
  String string = sharedPreferences.getString("Gender","");
         Toast.makeText(getApplicationContext(),"string",Toast.LENGTH_SHORT).show();
     }
-    public void display_user_data(View view)
-    {
-        SharedPreferences sharedPreferences = getSharedPreferences("userinfo",Context.MODE_PRIVATE);
-         String string = sharedPreferences.getString("Gender","");
-        int h= sharedPreferences.getInt("Height",0);
-       int w =sharedPreferences.getInt("Weight",0);
-       int a= sharedPreferences.getInt("Age",0);
 
-       Toast.makeText(getApplicationContext(),string,Toast.LENGTH_SHORT).show();
-
-
-
-    }
 
 
 }

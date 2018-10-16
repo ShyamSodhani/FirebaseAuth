@@ -17,13 +17,17 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Doctorchat extends AppCompatActivity {
@@ -41,13 +45,17 @@ public class Doctorchat extends AppCompatActivity {
 
     private String mUsername;
     private FirebaseDatabase mFirebaseDatabase;
+    FirebaseAuth mAuth;
     private DatabaseReference mMessagesDatabaseRefrence;
     private ChildEventListener mChildEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctorchat);
-        mUsername = ANONYMOUS;
+        mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
+
+        mUsername = user.getDisplayName();
         mFirebaseDatabase =FirebaseDatabase.getInstance();
         mMessagesDatabaseRefrence =mFirebaseDatabase.getReference().child("messages");
 
@@ -68,12 +76,12 @@ public class Doctorchat extends AppCompatActivity {
         mProgressBar.setVisibility(ProgressBar.INVISIBLE);
 
         // ImagePickerButton shows an image picker to upload a image for a message
-        mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
+      /*  mPhotoPickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO: Fire an intent to show an image picker
             }
-        });
+        });*/
 
         // Enable Send button when there's text to send
         mMessageEditText.addTextChangedListener(new TextWatcher() {
@@ -101,7 +109,8 @@ public class Doctorchat extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO: Send messages on click
-                FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(),mUsername,null);
+                String time = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.DEFAULT).format(Calendar.getInstance().getTime());
+                FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(),mUsername,null,time);
                 mMessagesDatabaseRefrence.push().setValue(friendlyMessage);
                 // Clear input box
                 mMessageEditText.setText("");

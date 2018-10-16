@@ -14,6 +14,10 @@
     android:layout_weight="1"
     android:id="@+id/bmi"
         android:onClick="checkbmi"
+        android:background="#CFD8DC"
+        android:textSize="30dp"
+
+
     />
 
     <Button
@@ -23,6 +27,8 @@
         android:layout_weight="1"
         android:id="@+id/chat"
         android:onClick="Medichat"
+        android:background="#B0BEC5"
+        android:textSize="30dp"
         />
     <Button
         android:layout_width="match_parent"
@@ -31,14 +37,26 @@
         android:layout_weight="1"
         android:id="@+id/steps"
         android:onClick="checksteps"
+        android:background="#90A4AE"
+        android:textSize="30dp"
         />
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="BOOK APPOINTMENT"-->
+        <!--android:layout_weight="1"-->
+        <!--android:id="@+id/appointment"-->
+        <!--android:onClick="bookappointment"-->
+        <!--/>-->
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="BOOK APPOINTMENT"
         android:layout_weight="1"
-        android:id="@+id/appointment"
-        />
+        android:accessibilityLiveRegion="polite"
+        android:background="#78909C"
+        android:onClick="WEEKRECORD"
+        android:text="WEEKLY RECORD"
+        android:textSize="30dp" />
 
 
 </LinearLayout>

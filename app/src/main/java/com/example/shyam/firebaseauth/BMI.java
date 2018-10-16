@@ -23,16 +23,17 @@ public class BMI extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
         double weight= sharedPreferences.getInt("Weight",0);
         int height=  sharedPreferences.getInt("Height",0);
-        String Wt = "Your wt is:"+weight ;
-        String Ht= "Your ht is :"+height;
+        String Wt = "WEIGHT:"+weight+" Kg" ;
+        String Ht= "HEIGHT:"+height+" cm";
         Weight =(TextView)findViewById(R.id.bmi_weight);
-        Weight.setText(Wt);
+        Result = (TextView)findViewById(R.id.bmi_result);
         Height= (TextView)findViewById(R.id.bmi_height);
+        Weight.setText(Wt);
         Height.setText(Ht);
         Double re = (weight*10000/(height*height)) ;
         String res = Double.toString(re);
-        Result = (TextView)findViewById(R.id.bmi_result);
-        Result.setText(res);
+        String result="YOUR BMI IS:"+res;
+        Result.setText(result);
 
 
 

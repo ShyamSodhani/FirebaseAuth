@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".overweight">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/result_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            tools:layout_editor_absoluteX="231dp"
+            tools:layout_editor_absoluteY="204dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#d7d7d0"
+            android:text="BREAKFAST"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="2 Brown Bread"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="1 Cup Juice(No Sugar)"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="1-2 Roti with curry,1 Apple"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="#d7d7d0"
+            android:text="LUNCH"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="3-4 Pieces of baked fish and salad"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="Steamed or less fried vegetables"
+            android:textColor="#000000"
+            android:textSize="30sp"
+
+            />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="Any 1 fruit, 5-10 almonds"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="#d7d7d0"
+            android:text="DINNER"
+            android:textColor="#000000"
+            android:textSize="30sp"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="Vegetable soup/Lentil/ Bean soup"
+            android:textColor="#000000"
+            android:textSize="30sp"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="A bowl of small serving of White/ Brown rice with Lentil/ curry"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#f9ebeb"
+            android:gravity="center_horizontal"
+            android:text="Steamed or less fried vegetables, salad"
+            android:textColor="#000000"
+            android:textSize="30sp"
+
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>

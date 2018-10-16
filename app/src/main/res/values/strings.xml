@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FirebaseAuth</string>
+
+    <string-array name="planets_array">
+        <item>Dermatologist</item>
+        <item>Dentist</item>
+        <item>Cardiologist</item>
+        <item>Family Physician</item>
+        <item>Gastroenterologist</item>
+
+    </string-array>
 </resources>

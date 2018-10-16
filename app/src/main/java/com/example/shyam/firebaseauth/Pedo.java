@@ -1,6 +1,7 @@
 package com.example.shyam.firebaseauth;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -12,15 +13,9 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 public class Pedo extends AppCompatActivity implements SensorEventListener {
     SensorManager sensorManager;
-    int count=0,sum;
+    //int count=0;
 
-    int height=63; //height is 63 inches
-    double AvgStepsLenght=(height*0.413)/12; //avg foot step lenght in foot
-    double EachStepInKilo=AvgStepsLenght/3280.84;
-    double weight=62;
-    double StepsInMile=5280/AvgStepsLenght;
-    double CalorieperMile=0.57*weight;
-    double CalorieperStep=CalorieperMile/StepsInMile;
+
 
     TextView tv_steps;
     TextView distance;
@@ -36,6 +31,35 @@ public class Pedo extends AppCompatActivity implements SensorEventListener {
         distance=(TextView) findViewById(R.id.distance);
         calories=(TextView) findViewById(R.id.calories);
         time=(TextView) findViewById(R.id.time);
+
+
+        //height is 63 inches
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        int sum=sharedPreferences.getInt("Sum",0);
+        tv_steps.setText(String.valueOf(sum));
+
+        double weight= sharedPreferences.getInt("Weight",0);
+        double height=  sharedPreferences.getInt("Height",0);
+
+        double AvgStepsLenght=(height*0.413)/12; //avg foot step lenght in foot
+        double EachStepInKilo=AvgStepsLenght/3280.84;
+//     weight=62;
+        double StepsInMile=5280/AvgStepsLenght;
+        double CalorieperMile=0.57*weight;
+        double CalorieperStep=CalorieperMile/StepsInMile;
+
+        distance.setText(String.valueOf(Math.round(sum*EachStepInKilo*100)/100D));
+        calories.setText(String.valueOf(Math.round(sum*CalorieperStep*100)/100D));
+
+        String min=" min";
+        String str2=String.valueOf(Math.round((sum*0.8)/60));
+        String str3=str2.concat(min);
+
+
+        time.setText(str3);
+
 
         sensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
     }
@@ -66,20 +90,44 @@ public class Pedo extends AppCompatActivity implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        if(running){
-            count++;
-            tv_steps.setText(String.valueOf(count));
+        SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        double weight= sharedPreferences.getInt("Weight",0);
+        double height=  sharedPreferences.getInt("Height",0);
+        int sum=sharedPreferences.getInt("Sum",0);
 
-            distance.setText(String.valueOf(Math.round(count*EachStepInKilo*100)/100D));
-            calories.setText(String.valueOf(Math.round(count*CalorieperStep*100)/100D));
+        //height is 63 inches
+        double AvgStepsLenght=(height*0.413)/12; //avg foot step lenght in foot
+        double EachStepInKilo=AvgStepsLenght/3280.84;
+//     weight=62;
+        double StepsInMile=5280/AvgStepsLenght;
+        double CalorieperMile=0.57*weight;
+        double CalorieperStep=CalorieperMile/StepsInMile;
+
+        if(running){
+            sum++;
+
+            tv_steps.setText(String.valueOf(sum));
+
+            distance.setText(String.valueOf(Math.round(sum*EachStepInKilo*100)/100D));
+            calories.setText(String.valueOf(Math.round(sum*CalorieperStep*100)/100D));
 
             String min=" min";
-            String str2=String.valueOf(Math.round((count*0.8)/60));
+            String str2=String.valueOf(Math.round((sum*0.8)/60));
             String str3=str2.concat(min);
 
 
             time.setText(str3);
-            //tv_steps.setText(String.valueOf(event.values[0]));
+
+//            SharedPreferences sharedPreferences = getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+//            SharedPreferences.Editor preferencesEditor = sharedPreferences.edit();
+//            preferencesEditor.putInt("sum", sum);
+//            preferencesEditor.apply();
+
+            SharedPreferences sharedPreferences2 = getApplicationContext().getSharedPreferences("userinfo",Context.MODE_PRIVATE)  ;
+            SharedPreferences.Editor editor = sharedPreferences2.edit();
+            editor.putInt("Sum", sum);
+            editor.apply();
+
         }
 
     }
